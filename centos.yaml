@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: centos-acc1
+  labels:
+    app: centos-acc1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: centos-acc1
+  template:
+    metadata:
+      labels:
+        app: centos-acc1
+    spec:
+      containers:
+      - name: centos
+        image: centos:latest
+        command: ["sleep", "1800"]
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
