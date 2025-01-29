@@ -8,8 +8,6 @@ spec:
     matchLabels:
       app: nginx1
   replicas: 1
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
