@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: alpine-acc1
-  namespace: account-1
+  namespace: account-2
   labels:
     app: alpine-acc1
 spec:
