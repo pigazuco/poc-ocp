@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpine-acc2
+  namespace: account-2
+  labels:
+    app: alpine-acc2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: alpine-acc2
+  template:
+    metadata:
+      labels:
+        app: alpine-acc2
+    spec:
+      containers:
+      - name: alpine-acc2
+        image: alpine:latest
+        command: ["ping", "127.0.0.1"]
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
